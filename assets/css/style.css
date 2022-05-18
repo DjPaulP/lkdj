@@ -1,0 +1,570 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+/* add style to the navbar */
+
+.navbar {
+    background: #131313;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 888;
+}
+
+.navbar_container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 50px;
+    z-index: 1;
+}
+
+#navbar_logo {
+    background-color: #ff8177;
+    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+.fa-sun {
+    margin-right: 0.5rem;
+}
+
+.navbar_menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+
+.navbar_item {
+    height: 80px;
+}
+
+.navbar_links {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+}
+
+.navbar_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: #f77062;
+    color: #fff;
+}
+
+.button:hover {
+    color: #f77062;
+    background: #fff;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.navbar_links:hover {
+    color: #f77062;
+    transition: all 0.3s ease;
+}
+
+/* responsive design for navbar */
+@media screen and (max-width: 960px) {
+    .navbar_container {
+        display: flex;
+        justify-content: space-between;
+        height: 80px;
+        width: 100%;
+        max-width: 1300px;
+        padding: 0;
+        z-index: 1;
+    }
+
+    .navbar_menu {
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0;
+        width: 90%;
+        height: 50vh;
+        position: absolute;
+        top: -1000px;
+        opacity: 0;
+        transition: all 1s ease;
+        z-index: -1;
+    }
+
+    .navbar_menu.active {
+        background: #131313;
+        top: 100%;
+        opacity: 1;
+        transition: all 1s ease;
+        z-index: 100;
+        height: 50vh;
+        font-size: 1.6rem;
+    }
+
+    #navbar_logo {
+        padding-left: 5px; 
+    }
+
+    .navbar_toggle .bar {
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background: #fff;
+    }
+
+    .navbar_item {
+        width: 100%;
+    }
+
+    .navbar_links {
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+    }
+
+    #mobile-menu {
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        transform: translate(5%, 20%);
+    }
+
+    .navbar_btn {
+        padding-bottom: 2rem;
+    }
+
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 80px;
+        margin: 0;
+    }
+
+    .navbar_toggle .bar {
+        display: block;
+        cursor: pointer;
+    }
+
+    #mobile-menu.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    #mobile-menu.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    #mobile-menu.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}    
+
+/* styling body of webpage */
+
+.center {
+    text-align: center;
+}
+
+h1 {
+    color: yellow;
+    font-size: 50px;
+}
+
+.welcome {
+    margin: 250px 0px;
+    color: #fff;
+    background: none;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+/* add style to hero video on website 
+help taken from https://howtogetonline.com/how-to-embed-a-hero-background-video.php*/
+video#bgvideo {
+position: fixed;
+top: 50%;
+left: 50%;
+min-width: 100%;
+min-height: 100%;
+width: auto;
+height: auto;
+z-index: -100;
+filter:opacity(100%);
+transform: translateX(10%) translateY(40%);
+-ms-transform: translateX(-50%) translateY(-50%);
+-moz-transform: translateX(-50%) translateY(-50%);
+-webkit-transform: translateX(-50%) translateY(-50%);
+transform: translateX(-50%) translateY(-50%);
+background: url(../images/beach_image.jpg) no-repeat;
+background-size: cover;
+}
+
+.vid-mobile {
+  display:none;
+}
+
+@media only screen and (max-width: 700px) {
+  #bgvideo {
+    display: none;
+  }
+  body {
+    background: url(../images/beach_image.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
+}
+}
+
+    /* set a style for all buttons*/
+    button {
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        cursor: pointer;
+        width: 100%;
+    }
+    /*set styles for the cancel button*/
+    .cancelbtn {
+        padding: 14px 20px;
+        background-color: #FF2E00;
+    }
+    /*float cancel and signup buttons and add an equal width*/
+    .cancelbtn,
+    .signupbtn {
+        float: left;
+        width: 50%
+    }
+    /*add padding to container elements*/
+    .container {
+        padding: 16px;
+    }
+    /*define the modal’s background*/
+     
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding-top: 60px;
+    }
+    /*define the modal-content background*/
+     
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto 15% auto;
+        border: 1px solid #888;
+        width: 80%;
+    }
+    /*define the close button*/
+     
+    .close {
+        position: absolute;
+        right: 100px;
+        top: 15px;
+        color: #fff;
+        font-size: 50px;
+        font-weight: bold;
+    }
+    /*define the close hover and focus effects*/
+     
+    .close:hover,
+    .close:focus {
+        color: red;
+        cursor: pointer;
+    }
+     
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+     
+    @media screen and (max-width: 300px) {
+        .cancelbtn,
+        .signupbtn {
+            width: 100%;
+        }
+    }
+.tenerife-container {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.opener {
+  background: -webkit-linear-gradient(#ff0844, #ffb199);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* styling for the top 3 picks */
+.card-text {
+    color: #000;
+}
+.page-head {
+    background: -webkit-linear-gradient(#ff0844, #ffb199);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* Styling the Map */
+
+#map {
+    width: 100%;
+    overflow:hidden;
+    padding-bottom:50%;
+    margin-bottom: 20px;
+    position: relative;
+    height: 400px;
+}
+
+.card-img-top {
+    height: 200px;
+}
+.grouped-btns {
+    text-align: center;
+    word-spacing: 100px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.exp-btns {
+    font-family: 'Kumbh Sans', sans-serif;
+    background-color: yellow;
+    border: 1px solid #000;
+    color: black;
+    height: 40px;
+    margin-bottom: 3px;
+}
+
+.exp-btns:hover {
+    background-color: black;
+    color: yellow;
+    border: 1px solid #dfe8f1;
+}
+
+.exp-btn-icon {
+    margin-right: 10px;
+}
+/* Back to top button styling */
+#myBtn {
+  display: none; 
+  position: fixed; 
+  bottom: 20px; 
+  right: 30px; 
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; 
+  outline: none; 
+  background-color: #f77062; 
+  color: white; 
+  cursor: pointer; 
+  padding: 15px; 
+  border-radius: 10px; 
+  font-size: 18px;
+  width: 100px;
+  transition: .3s ease-in-out;
+}
+
+#myBtn:hover {
+  color: #f77062;
+  background-color: #fff; /* inverts the colors */
+}
+
+/* smooth scroll back to the top of the page and down to links also */
+@media screen and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+/* Styling the contact form */
+
+.contact {
+    max-width: 800px;
+    margin: 50px auto;
+    position: relative;
+    box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 1);
+}
+.contact-form span {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 10px;
+    display: block;
+    font-weight: 700;
+}
+
+.form-heading {
+    background-color: #131313;
+    border-radius: 5px;
+    padding: 5px 0 5px 0;
+    
+}
+.contact-form h2 {
+    margin: 10px;
+    background-color: #ff8177;
+    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+    text-align: center;
+}
+.fa-envelope {
+    margin: 0 10px 0 10px;
+}
+.contact-form input {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+}
+
+.contact-form textarea {
+    width: 100%;
+    height: 200px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background: #fff;
+}
+
+.contact-btn button {
+    Width: 100%;
+    border: 0;
+    padding: 15px 35px;
+    font-size: 22px;
+    border-radius: 5px;
+    background-color: #ff8177;
+    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+    transition: .3s ease-in-out;
+}
+
+.contact-btn button:hover  {
+    background-image: linear-gradient(to top, #ffb199 0%, #ff0844 100%);
+    transition: .3s ease-in-out;
+}
+
+/* Styling the footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.global {
+    padding: 0px;
+    color: #f0f9ff
+}
+
+.global h6 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.global .social {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px;
+    padding-bottom: 0;
+    border-top: 1px solid #eee;
+    margin-top: 50px;
+}
+
+.global .social a {
+    font-size: 22px;
+    width: 45px;
+    height: 45px;
+    line-height: 39px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid #eee;
+    box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.4);
+    margin: 10px;
+    color: #fff;
+    opacity: 0.7;
+    transition: 0.3s ease-in-out;
+    padding: 4px;
+}
+
+.global .social a:hover {
+    opacity: 0.9;
+    box-shadow: 0px 1px 3px 2px rgba(255, 255, 255, 0.9);
+}
+
+.global .copyright {
+    padding-top: 24px;
+    font-weight: 500;
+    opacity: 0.8;
+    font-size: 16px;
+    padding-bottom: 20px;
+}
+
+/* styling the more info buttons on the 3 favourites divs */
+.btns {
+    border-radius: 15px;
+    padding: 5px;
+    background: -webkit-linear-gradient(#ff0844, #ffb199);
+    color: #fff
+}
+
+.btns:hover  {
+    background: -webkit-linear-gradient(#ffb199, #ff0844);
+    transition: .3s ease-in-out;
+    color: #fff;
+    text-decoration: none;
+}
